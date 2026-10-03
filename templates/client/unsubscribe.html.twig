@@ -1,0 +1,22 @@
+{# The way out: one button (a GET alone never unsubscribes - mail scanners follow links), then a word saying it is done. #}
+{% extends 'layout1.html.twig' %}
+
+{% block title %}{{ '@newsletter.unsubscribe.title'|trans }}{% endblock %}
+{% block description %}{{ '@newsletter.index.description'|trans }}{% endblock %}
+
+{% block stylesheets %}{{ parent() }}<link rel="stylesheet" href="{{ asset('bundles/newsletter/css/newsletter.css') }}">{% endblock %}
+
+{% block content %}
+<section class="newsletter newsletter-page">
+    <h1>{{ '@newsletter.unsubscribe.title'|trans }}</h1>
+    {% if done %}
+    <p class="newsletter-lead">{{ '@newsletter.unsubscribe.done'|trans }}</p>
+    <p><a href="{{ path('newsletter_index') }}">{{ '@newsletter.unsubscribe.again'|trans }}</a></p>
+    {% else %}
+    <p class="newsletter-lead">{{ '@newsletter.unsubscribe.ask'|trans }}</p>
+    <form method="post" action="{{ path('newsletter_unsubscribe', {token: token}) }}">
+        <button class="newsletter-button" type="submit">{{ '@newsletter.unsubscribe.button'|trans }}</button>
+    </form>
+    {% endif %}
+</section>
+{% endblock %}

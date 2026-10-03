@@ -1,0 +1,20 @@
+/* omnibase/newsletter: the sign-up form and the newsletter's pages. Minimal,
+   on the host's custom properties when it defines them (--newsletter-accent,
+   --newsletter-soft, --newsletter-line, --newsletter-surface), else sensible
+   defaults. The form inherits its fonts and colours from where it sits. */
+.newsletter { --_accent: var(--newsletter-accent, currentColor); --_soft: var(--newsletter-soft, #6b6b6b); --_line: var(--newsletter-line, rgba(127,127,127,.35)); --_surface: var(--newsletter-surface, rgba(127,127,127,.08)); }
+.newsletter-page { width: 100%; max-width: var(--newsletter-measure, 40rem); margin: 0 auto; padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3.5vw, 2.5rem) clamp(3rem, 6vw, 4.5rem); }
+.newsletter-page h1 { margin: 0 0 .5rem; font-size: clamp(1.8rem, 3.4vw, 2.6rem); letter-spacing: -.02em; }
+.newsletter-eyebrow { margin: 0 0 .5rem; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--_soft); }
+.newsletter-lead { color: var(--_soft); }
+.newsletter-points { margin: 1.25rem 0 1.75rem; padding-left: 1.2rem; line-height: 1.6; }
+.newsletter-title { margin: 0 0 .25rem; font-weight: 700; }
+.newsletter-form { display: grid; gap: .4rem; max-width: 32rem; }
+.newsletter-line { display: flex; flex-wrap: wrap; gap: .5rem; }
+.newsletter-line input { flex: 1 1 14rem; min-width: 0; min-height: 2.6rem; padding: 0 .9rem; border: 1px solid var(--_line); border-radius: 2rem; background: transparent; color: inherit; font: inherit; }
+.newsletter-button { display: inline-flex; align-items: center; justify-content: center; min-height: 2.6rem; padding: 0 1.15rem; border: 1px solid var(--_accent); border-radius: 2rem; background: none; color: var(--_accent); font: inherit; font-weight: 600; text-decoration: none; cursor: pointer; }
+.newsletter-button:hover { background: var(--_surface); }
+.newsletter-note { margin: 0; font-size: .8rem; color: var(--_soft); }
+.newsletter-flash { padding: .6rem .9rem; border-radius: .6rem; background: var(--_surface); }
+.newsletter-trap { position: absolute !important; left: -100vw; width: 1px; height: 1px; overflow: hidden; }
+.newsletter-form .form-group, .newsletter-form .mb-3 { margin: 0; }

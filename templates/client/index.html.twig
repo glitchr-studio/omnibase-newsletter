@@ -1,0 +1,23 @@
+{# The newsletter's own page: what it is, how often, the form. The host's layout1.html.twig gives the chrome; newsletter.css the look. #}
+{% extends 'layout1.html.twig' %}
+
+{% block title %}{{ '@newsletter.index.title'|trans }}{% endblock %}
+{% block description %}{{ '@newsletter.index.description'|trans }}{% endblock %}
+
+{% block stylesheets %}{{ parent() }}<link rel="stylesheet" href="{{ asset('bundles/newsletter/css/newsletter.css') }}">{% endblock %}
+
+{% block content %}
+<section class="newsletter newsletter-page">
+    <header class="newsletter-head">
+        <p class="newsletter-eyebrow">{{ '@newsletter.index.eyebrow'|trans }}</p>
+        <h1>{{ '@newsletter.index.title'|trans }}</h1>
+        <p class="newsletter-lead">{{ '@newsletter.index.lead'|trans }}</p>
+    </header>
+    <ul class="newsletter-points">
+        <li>{{ '@newsletter.index.point_what'|trans }}</li>
+        <li>{{ '@newsletter.index.point_confirm'|trans }}</li>
+        <li>{{ '@newsletter.index.point_leave'|trans }}</li>
+    </ul>
+    {% include '@Newsletter/client/_form.html.twig' with {newsletter_form: newsletter_form, heading: false, source: 'newsletter'} %}
+</section>
+{% endblock %}

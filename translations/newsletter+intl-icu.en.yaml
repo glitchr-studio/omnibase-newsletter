@@ -1,0 +1,98 @@
+index:
+  title: "Newsletter"
+  eyebrow: "By e-mail"
+  lead: "The concerts to come, the new recordings, now and then a word from the road."
+  description: "The newsletter: the concerts to come and the news, by e-mail, a few times a year."
+  point_what: "A few letters a year, never more than one a month."
+  point_confirm: "A mail asks you to confirm your address: nothing is sent before."
+  point_leave: "Every letter carries its way out: one click and you are off the list."
+
+form:
+  title: "Newsletter"
+  lead: "The concerts to come and the news, by e-mail."
+  email: "Your e-mail"
+  submit: "Sign up"
+  note: "Never passed on. Leave whenever you like."
+
+flash:
+  check_inbox: "Thank you! Check your inbox: a mail asks you to confirm your address."
+  subscribed: "Thank you! You will receive the next letter."
+  invalid: "That address does not look right: have another look?"
+  too_fast: "A little fast! Try again in a few seconds."
+  flood: "You just signed up: wait a minute before the next one."
+  too_many: "Too many sign-ups from here: try again in an hour."
+
+confirmed:
+  title: "You are on the list"
+  text: "{email} will receive the next letter. Thank you!"
+  gone_title: "This address left the list"
+  gone_text: "It was unsubscribed since: sign up again on the newsletter page if you want the letters back."
+
+unsubscribe:
+  title: "Unsubscribe"
+  ask: "No more letters at this address?"
+  button: "Unsubscribe"
+  done: "Done: you will receive no more letters."
+  again: "Changed your mind? Sign up again."
+
+back_home: "Back to the site"
+
+email:
+  confirm:
+    subject: "{site, select, none {Confirm your address} other {Confirm your address – {site}}}"
+    title: "One click to confirm"
+    text: "Someone - you, we hope - signed this address up for the newsletter. Confirm it, and you will receive the next letter."
+    button: "Confirm my address"
+    ignore: "Not you? Ignore this mail: nothing will be sent to you."
+  campaign:
+    more: "Read more"
+    why: "You receive this letter because you signed up for it."
+    unsubscribe: "Unsubscribe"
+    test: "Test: this is how the subscribers will receive it."
+
+digest:
+  subject: "Your dates in {month}"
+  intro: "What is coming in {month}."
+
+admin:
+  campaign:
+    subject: "Subject"
+    locale: "Language"
+    locale_help: "The subscribers of one language; empty: everyone."
+    state: "State"
+    body: "Text"
+    body_help: "Plain text, a blank line between two paragraphs."
+    link: "Button's link"
+    link_help: "A page of the site (/concerts) or a full address."
+    link_label: "Button's label"
+    recipients: "Sent to"
+    created_at: "Written on"
+    sent_at: "Sent on"
+    action:
+      test: "Send me a test"
+      send: "Send"
+      send_confirm: "Send this letter to every subscriber now?"
+    flash:
+      tested: "Test sent to {email}."
+      sending: "{count, plural, =0 {On its way - to no one yet: nobody has confirmed.} one {On its way to # subscriber.} other {On its way to # subscribers.}}"
+      not_draft: "This letter is no longer a draft: it cannot be sent again."
+      no_email: "Your account has no e-mail address to send the test to."
+  subscriber:
+    email: "E-mail"
+    locale: "Language"
+    source: "Source"
+    created_at: "Signed up on"
+    confirmed_at: "Confirmed on"
+    unsubscribed_at: "Left on"
+    ip: "IP address"
+    confirmed: "Confirmed"
+    unsubscribed: "Left"
+    action:
+      export: "Export (CSV)"
+  widget:
+    confirmed: "{count, plural, =0 {subscriber} one {subscriber} other {subscribers}}"
+    pending: "{count, plural, =0 {to confirm} one {to confirm} other {to confirm}}"
+    state_confirmed: "confirmed"
+    state_pending: "to confirm"
+    state_gone: "left"
+    none: "Nobody yet."

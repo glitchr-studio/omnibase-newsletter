@@ -1,0 +1,98 @@
+index:
+  title: "Lettre d'information"
+  eyebrow: "Par e-mail"
+  lead: "Les concerts à venir, les nouveaux enregistrements, de temps en temps un mot de la route."
+  description: "La lettre d'information : les concerts à venir et les nouvelles, par e-mail, quelques fois par an."
+  point_what: "Quelques lettres par an, jamais plus d'une par mois."
+  point_confirm: "Un e-mail vous demande de confirmer votre adresse : rien n'est envoyé avant."
+  point_leave: "Chaque lettre porte sa sortie : un clic et vous quittez la liste."
+
+form:
+  title: "Lettre d'information"
+  lead: "Les concerts à venir et les nouvelles, par e-mail."
+  email: "Votre e-mail"
+  submit: "S'inscrire"
+  note: "Jamais transmis. Désinscription à tout moment."
+
+flash:
+  check_inbox: "Merci ! Regardez votre boîte : un e-mail vous demande de confirmer votre adresse."
+  subscribed: "Merci ! Vous recevrez la prochaine lettre."
+  invalid: "Cette adresse ne semble pas valide : pouvez-vous la vérifier ?"
+  too_fast: "Un peu vite ! Réessayez dans quelques secondes."
+  flood: "Vous venez de vous inscrire : attendez une minute avant la suivante."
+  too_many: "Trop d'inscriptions depuis cet endroit : réessayez dans une heure."
+
+confirmed:
+  title: "Vous êtes inscrit·e"
+  text: "{email} recevra la prochaine lettre. Merci !"
+  gone_title: "Cette adresse a quitté la liste"
+  gone_text: "Elle a été désinscrite depuis : réinscrivez-la sur la page de la lettre si vous voulez la recevoir à nouveau."
+
+unsubscribe:
+  title: "Se désinscrire"
+  ask: "Ne plus recevoir de lettres à cette adresse ?"
+  button: "Me désinscrire"
+  done: "C'est fait : vous ne recevrez plus de lettres."
+  again: "Changé d'avis ? Réinscrivez-vous."
+
+back_home: "Retour au site"
+
+email:
+  confirm:
+    subject: "{site, select, none {Confirmez votre adresse} other {Confirmez votre adresse – {site}}}"
+    title: "Un clic pour confirmer"
+    text: "Quelqu'un - vous, nous l'espérons - a inscrit cette adresse à la lettre d'information. Confirmez-la, et vous recevrez la prochaine lettre."
+    button: "Confirmer mon adresse"
+    ignore: "Ce n'est pas vous ? Ignorez cet e-mail : rien ne vous sera envoyé."
+  campaign:
+    more: "En savoir plus"
+    why: "Vous recevez cette lettre parce que vous vous y êtes inscrit·e."
+    unsubscribe: "Se désinscrire"
+    test: "Test : voici comment les abonnés la recevront."
+
+digest:
+  subject: "Vos dates de {month}"
+  intro: "Ce qui vient en {month}."
+
+admin:
+  campaign:
+    subject: "Objet"
+    locale: "Langue"
+    locale_help: "Les abonnés d'une langue ; vide : tout le monde."
+    state: "État"
+    body: "Texte"
+    body_help: "Texte simple, une ligne vide entre deux paragraphes."
+    link: "Lien du bouton"
+    link_help: "Une page du site (/concerts) ou une adresse complète."
+    link_label: "Texte du bouton"
+    recipients: "Envoyée à"
+    created_at: "Écrite le"
+    sent_at: "Envoyée le"
+    action:
+      test: "M'envoyer un test"
+      send: "Envoyer"
+      send_confirm: "Envoyer cette lettre à tous les abonnés maintenant ?"
+    flash:
+      tested: "Test envoyé à {email}."
+      sending: "{count, plural, =0 {En route - vers personne encore : aucun abonné n'a confirmé.} one {En route vers # abonné.} other {En route vers # abonnés.}}"
+      not_draft: "Cette lettre n'est plus un brouillon : elle ne peut pas repartir."
+      no_email: "Votre compte n'a pas d'adresse e-mail où envoyer le test."
+  subscriber:
+    email: "E-mail"
+    locale: "Langue"
+    source: "Provenance"
+    created_at: "Inscrit le"
+    confirmed_at: "Confirmé le"
+    unsubscribed_at: "Parti le"
+    ip: "Adresse IP"
+    confirmed: "Confirmé"
+    unsubscribed: "Parti"
+    action:
+      export: "Exporter (CSV)"
+  widget:
+    confirmed: "{count, plural, =0 {abonné} one {abonné} other {abonnés}}"
+    pending: "{count, plural, =0 {à confirmer} one {à confirmer} other {à confirmer}}"
+    state_confirmed: "confirmé"
+    state_pending: "à confirmer"
+    state_gone: "parti"
+    none: "Personne encore."

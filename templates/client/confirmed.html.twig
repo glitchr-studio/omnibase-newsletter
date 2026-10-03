@@ -1,0 +1,20 @@
+{# The confirm link followed: on the list - or, for an address that left since, not brought back. #}
+{% extends 'layout1.html.twig' %}
+
+{% block title %}{{ '@newsletter.confirmed.title'|trans }}{% endblock %}
+{% block description %}{{ '@newsletter.index.description'|trans }}{% endblock %}
+
+{% block stylesheets %}{{ parent() }}<link rel="stylesheet" href="{{ asset('bundles/newsletter/css/newsletter.css') }}">{% endblock %}
+
+{% block content %}
+<section class="newsletter newsletter-page">
+    {% if subscriber.active %}
+    <h1>{{ '@newsletter.confirmed.title'|trans }}</h1>
+    <p class="newsletter-lead">{{ '@newsletter.confirmed.text'|trans({email: subscriber.email}) }}</p>
+    {% else %}
+    <h1>{{ '@newsletter.confirmed.gone_title'|trans }}</h1>
+    <p class="newsletter-lead">{{ '@newsletter.confirmed.gone_text'|trans }}</p>
+    {% endif %}
+    <p><a class="newsletter-button" href="{{ app.request.baseUrl }}/">{{ '@newsletter.back_home'|trans }}</a></p>
+</section>
+{% endblock %}

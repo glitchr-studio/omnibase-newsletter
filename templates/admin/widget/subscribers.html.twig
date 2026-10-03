@@ -1,0 +1,38 @@
+{# Who reads the letters (Base\Newsletter\Admin\Widget\SubscribersWidgetType). #}
+<div class="analytics-card card newsletter-widget">
+    <div class="analytics-card-header">
+        <h2 class="analytics-card-title">{{ widget.label|trans({}, 'admin') }}</h2>
+    </div>
+    <div class="newsletter-widget-body">
+        <div class="newsletter-widget-counts">
+            <a class="newsletter-widget-count" href="{{ path('admin_crud_subscribers_index', {filters: {confirmed: 1, unsubscribed: 0}}) }}">
+                <strong>{{ confirmed }}</strong>
+                <span>{{ '@newsletter.admin.widget.confirmed'|trans({count: confirmed}) }}</span>
+            </a>
+            <a class="newsletter-widget-count is-pending" href="{{ path('admin_crud_subscribers_index', {filters: {confirmed: 0, unsubscribed: 0}}) }}">
+                <strong>{{ pending }}</strong>
+                <span>{{ '@newsletter.admin.widget.pending'|trans({count: pending}) }}</span>
+            </a>
+        </div>
+        {% if subscribers %}
+        <ul class="newsletter-widget-list">
+            {% for subscriber in subscribers %}
+            <li><a href="{{ path('admin_crud_subscribers_detail', {entityId: subscriber.id}) }}"><b>{{ subscriber.email }}</b> · {{ subscriber.createdAt|format_date('short') }}<br><small>{{ subscriber.active ? '@newsletter.admin.widget.state_confirmed'|trans : (subscriber.unsubscribed ? '@newsletter.admin.widget.state_gone'|trans : '@newsletter.admin.widget.state_pending'|trans) }} · {{ subscriber.source }}</small></a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="newsletter-widget-empty">{{ '@newsletter.admin.widget.none'|trans }}</p>
+        {% endif %}
+    </div>
+</div>
+<style>
+    .newsletter-widget-body { display: grid; gap: .75rem; padding: 0 1rem 1rem; }
+    .newsletter-widget-counts { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+    .newsletter-widget-count { display: grid; gap: .2rem; padding: .9rem 1rem; border-radius: .75rem; background: rgba(127,127,127,.08); color: inherit; text-decoration: none; }
+    .newsletter-widget-count strong { font-size: 1.6rem; line-height: 1.1; }
+    .newsletter-widget-count span { font-size: .8rem; opacity: .75; }
+    .newsletter-widget-count.is-pending strong { opacity: .7; }
+    .newsletter-widget-list { margin: 0; padding: 0; list-style: none; display: grid; gap: .4rem; font-size: .85rem; }
+    .newsletter-widget-list a { color: inherit; text-decoration: none; }
+    .newsletter-widget-empty { margin: 0; font-size: .85rem; opacity: .7; }
+</style>

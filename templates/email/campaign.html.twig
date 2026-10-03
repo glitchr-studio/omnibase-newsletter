@@ -1,0 +1,39 @@
+{#
+ # A letter (Base\Newsletter\Service\NewsletterMailer::campaign), sent with
+ # Symfony's mailer - List-Unsubscribe headers are set on it there. The
+ # subject, the text a paragraph at a time, the optional button, and the
+ # way out. Sober and table-based, for every mail client; a host overrides it
+ # from templates/bundles/NewsletterBundle/email/campaign.html.twig.
+ #}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head><meta charset="utf-8"><title>{{ subject }}</title></head>
+<body style="margin:0;background:#f4f4f2;font-family:Georgia,'Times New Roman',serif;color:#1c1c1c;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f2;padding:24px 0;">
+<tr><td align="center">
+<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#ffffff;border-radius:8px;">
+    {% if test %}
+    <tr><td style="padding:10px 28px;background:#fff4d6;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#7a5c00;border-radius:8px 8px 0 0;">{{ '@newsletter.email.campaign.test'|trans({}, null, locale) }}</td></tr>
+    {% endif %}
+    {% if site_title %}
+    <tr><td style="padding:22px 28px 0;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6b6b6b;">{{ site_title }}</td></tr>
+    {% endif %}
+    <tr><td style="padding:16px 28px 28px;font-size:16px;line-height:1.6;">
+        <h1 style="margin:0 0 16px;font-size:24px;font-weight:normal;">{{ subject }}</h1>
+        {% for paragraph in campaign.paragraphs %}
+        <p style="margin:0 0 14px;">{{ paragraph|nl2br }}</p>
+        {% endfor %}
+        {% if link %}
+        <p style="margin:24px 0 8px;"><a href="{{ link }}" style="background:#1c1c1c;color:#ffffff;text-decoration:none;padding:12px 22px;border-radius:999px;display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:15px;">{{ campaign.linkLabel ?? '@newsletter.email.campaign.more'|trans({}, null, locale) }}</a></p>
+        {% endif %}
+    </td></tr>
+    <tr><td style="padding:14px 28px;border-top:1px solid #ececec;font-size:12px;line-height:1.5;color:#8a8a8a;">
+        {{ '@newsletter.email.campaign.why'|trans({}, null, locale) }}
+        <a href="{{ unsubscribe }}" style="color:#8a8a8a;">{{ '@newsletter.email.campaign.unsubscribe'|trans({}, null, locale) }}</a>
+        · <a href="{{ home }}" style="color:#8a8a8a;">{{ site_title ?? home|replace({'https://': '', 'http://': ''})|trim('/') }}</a>
+    </td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

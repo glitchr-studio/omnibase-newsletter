@@ -1,0 +1,98 @@
+index:
+  title: "Newsletter"
+  eyebrow: "Per E-Mail"
+  lead: "Die kommenden Konzerte, neue Aufnahmen, ab und zu ein Gruß von unterwegs."
+  description: "Der Newsletter: die kommenden Konzerte und Neuigkeiten, per E-Mail, einige Male im Jahr."
+  point_what: "Einige Briefe im Jahr, nie mehr als einer im Monat."
+  point_confirm: "Eine E-Mail bittet Sie, Ihre Adresse zu bestätigen: vorher wird nichts verschickt."
+  point_leave: "Jeder Brief enthält seinen Abmeldelink: ein Klick, und Sie sind von der Liste."
+
+form:
+  title: "Newsletter"
+  lead: "Die kommenden Konzerte und Neuigkeiten, per E-Mail."
+  email: "Ihre E-Mail"
+  submit: "Anmelden"
+  note: "Wird nie weitergegeben. Abmeldung jederzeit."
+
+flash:
+  check_inbox: "Vielen Dank! Bitte sehen Sie in Ihr Postfach: eine E-Mail bittet Sie, Ihre Adresse zu bestätigen."
+  subscribed: "Vielen Dank! Sie erhalten den nächsten Brief."
+  invalid: "Diese Adresse scheint nicht zu stimmen: bitte noch einmal prüfen."
+  too_fast: "Etwas schnell! Bitte in ein paar Sekunden noch einmal."
+  flood: "Sie haben sich gerade angemeldet: bitte eine Minute bis zur nächsten Anmeldung warten."
+  too_many: "Zu viele Anmeldungen von hier: bitte in einer Stunde noch einmal."
+
+confirmed:
+  title: "Sie sind angemeldet"
+  text: "{email} erhält den nächsten Brief. Vielen Dank!"
+  gone_title: "Diese Adresse hat die Liste verlassen"
+  gone_text: "Sie wurde inzwischen abgemeldet: melden Sie sie auf der Newsletter-Seite wieder an, wenn Sie die Briefe wieder erhalten möchten."
+
+unsubscribe:
+  title: "Abmelden"
+  ask: "Keine Briefe mehr an diese Adresse?"
+  button: "Abmelden"
+  done: "Erledigt: Sie erhalten keine Briefe mehr."
+  again: "Doch anders entschieden? Wieder anmelden."
+
+back_home: "Zurück zur Website"
+
+email:
+  confirm:
+    subject: "{site, select, none {Bitte bestätigen Sie Ihre Adresse} other {Bitte bestätigen Sie Ihre Adresse – {site}}}"
+    title: "Ein Klick zur Bestätigung"
+    text: "Jemand - hoffentlich Sie - hat diese Adresse für den Newsletter angemeldet. Bestätigen Sie sie, und Sie erhalten den nächsten Brief."
+    button: "Adresse bestätigen"
+    ignore: "Das waren nicht Sie? Dann ignorieren Sie diese E-Mail: Sie erhalten nichts."
+  campaign:
+    more: "Mehr erfahren"
+    why: "Sie erhalten diesen Brief, weil Sie sich dafür angemeldet haben."
+    unsubscribe: "Abmelden"
+    test: "Test: so erhalten ihn die Abonnenten."
+
+digest:
+  subject: "Ihre Termine im {month}"
+  intro: "Was im {month} kommt."
+
+admin:
+  campaign:
+    subject: "Betreff"
+    locale: "Sprache"
+    locale_help: "Die Abonnenten einer Sprache; leer: alle."
+    state: "Status"
+    body: "Text"
+    body_help: "Reiner Text, eine Leerzeile zwischen zwei Absätzen."
+    link: "Link des Buttons"
+    link_help: "Eine Seite der Website (/konzerte) oder eine vollständige Adresse."
+    link_label: "Text des Buttons"
+    recipients: "Verschickt an"
+    created_at: "Geschrieben am"
+    sent_at: "Verschickt am"
+    action:
+      test: "Test an mich"
+      send: "Verschicken"
+      send_confirm: "Diesen Brief jetzt an alle Abonnenten verschicken?"
+    flash:
+      tested: "Test an {email} verschickt."
+      sending: "{count, plural, =0 {Unterwegs - noch an niemanden: kein Abonnent hat bestätigt.} one {Unterwegs an # Abonnenten.} other {Unterwegs an # Abonnenten.}}"
+      not_draft: "Dieser Brief ist kein Entwurf mehr: er kann nicht noch einmal verschickt werden."
+      no_email: "Ihr Konto hat keine E-Mail-Adresse für den Test."
+  subscriber:
+    email: "E-Mail"
+    locale: "Sprache"
+    source: "Herkunft"
+    created_at: "Angemeldet am"
+    confirmed_at: "Bestätigt am"
+    unsubscribed_at: "Abgemeldet am"
+    ip: "IP-Adresse"
+    confirmed: "Bestätigt"
+    unsubscribed: "Abgemeldet"
+    action:
+      export: "Exportieren (CSV)"
+  widget:
+    confirmed: "{count, plural, =0 {Abonnenten} one {Abonnent} other {Abonnenten}}"
+    pending: "{count, plural, =0 {zu bestätigen} one {zu bestätigen} other {zu bestätigen}}"
+    state_confirmed: "bestätigt"
+    state_pending: "zu bestätigen"
+    state_gone: "abgemeldet"
+    none: "Noch niemand."

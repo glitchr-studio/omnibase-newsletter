@@ -1,0 +1,31 @@
+{#
+ # The sign-up form a host puts in its footer or on its home page:
+ #   {% include '@Newsletter/client/_form.html.twig' %}
+ #   {% include '@Newsletter/client/_form.html.twig' with {source: 'home', heading: false} %}
+ # `source` is kept with the address (which page it was filled on); the
+ # answer comes back here, at #newsletter, as a flash.
+ #}
+{# The page's own form when it has one not rendered yet; a fresh one otherwise (a footer under the newsletter page). #}
+{% set form = newsletter_form is defined and newsletter_form is not null and not newsletter_form.rendered ? newsletter_form : newsletter_form(source|default('site')) %}
+<div class="newsletter newsletter-box" id="newsletter">
+    {% if heading is not defined or heading %}
+    <p class="newsletter-title">{{ '@newsletter.form.title'|trans }}</p>
+    <p class="newsletter-lead">{{ '@newsletter.form.lead'|trans }}</p>
+    {% endif %}
+
+    {% for message in app.flashes('newsletter') %}
+    <p class="newsletter-flash" role="status">{{ ('@newsletter.' ~ message)|trans }}</p>
+    {% endfor %}
+
+    {{ form_start(form, {attr: {class: 'newsletter-form', novalidate: 'novalidate'}}) }}
+        <div class="newsletter-line">
+            {{ form_widget(form.email, {attr: {'aria-label': '@newsletter.form.email'|trans}}) }}
+            <button type="submit" class="newsletter-button">{{ '@newsletter.form.submit'|trans }}</button>
+        </div>
+        {{ form_errors(form.email) }}
+        {{ form_row(form.website) }}
+        {{ form_row(form.opened_at) }}
+        {{ form_row(form.source) }}
+        <p class="newsletter-note">{{ '@newsletter.form.note'|trans }}</p>
+    {{ form_end(form) }}
+</div>
