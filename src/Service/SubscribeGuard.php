@@ -10,13 +10,14 @@ use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\RateLimiter\RateLimiterFactoryInterface;
 
 /**
- * What stops a robot - or someone using the form to flood a stranger's
- * inbox with confirmation mails: the trap field filled, a form sent faster
- * than a person types (or with a time it did not get from us), a second
- * sign-up from the same address within the flood interval, more than the
- * limiter allows in the hour. Each answers with a reason the controller
- * turns into a flash - except the trap, which is thanked and dropped so the
- * robot learns nothing.
+ * What stops someone using the form to flood a stranger's inbox with
+ * confirmation mails: a second sign-up from the same address within the
+ * flood interval, more than the limiter allows in the hour. The robots are
+ * the form's guard's (glitchr/omnibase's option `guard`); with a core from
+ * before it, the form's own trap and signed time are read here: the trap
+ * filled (thanked and dropped, so the robot learns nothing), a form sent
+ * faster than a person types or with a time it did not get from us. Each
+ * answers with a reason the controller turns into a flash.
  */
 final class SubscribeGuard
 {
@@ -38,12 +39,14 @@ final class SubscribeGuard
     /** null when the address may be signed up. */
     public function check(FormInterface $form, Request $request): ?string
     {
-        if ('' !== trim((string) $form->get('website')->getData())) {
-            return self::TRAPPED;
-        }
-        $opened = SignedTimestamp::verify((string) $form->get('opened_at')->getData(), $this->secret);
-        if ($this->minDelay > 0 && (null === $opened || time() - $opened < $this->minDelay)) {
-            return self::TOO_FAST;
+        if ($form->has('website')) {
+            if ('' !== trim((string) $form->get('website')->getData())) {
+                return self::TRAPPED;
+            }
+            $opened = SignedTimestamp::verify((string) $form->get('opened_at')->getData(), $this->secret);
+            if ($this->minDelay > 0 && (null === $opened || time() - $opened < $this->minDelay)) {
+                return self::TOO_FAST;
+            }
         }
         $ip = $request->getClientIp();
         if ($this->floodInterval > 0 && $ip) {

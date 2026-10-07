@@ -50,7 +50,12 @@ class NewsletterController extends AbstractController
         $form = $this->form();
         $form->handleRequest($request);
         if (!$form->isSubmitted() || !$form->isValid()) {
-            $this->addFlash('newsletter', 'flash.invalid');
+            // Refused by the form's guard for its haste: said as such; anything else, the form is invalid.
+            $tooFast = false;
+            foreach ($form->getErrors() as $error) {
+                $tooFast = $tooFast || \in_array($error->getCause(), ['too_fast', 'stale'], true);
+            }
+            $this->addFlash('newsletter', $tooFast ? 'flash.'.SubscribeGuard::TOO_FAST : 'flash.invalid');
 
             return $this->back($request);
         }

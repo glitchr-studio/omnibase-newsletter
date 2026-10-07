@@ -75,9 +75,12 @@ of the mails point at `localhost`.
 
 ## Double opt-in
 
-1. The visitor fills the form. A trap field (`website`) catches the robots
-   that fill everything, a signed timestamp (`opened_at`, an HMAC with the
-   kernel's secret) the ones that send faster than `min_delay`, the flood
+1. The visitor fills the form. It is guarded as glitchr/omnibase guards a
+   form (its option `guard`, `action: newsletter`): a trap, the time it takes
+   (`min_delay`), the lists, the captcha when the site has glitchr/omniguard.
+   With a glitchr/omnibase from before the guard, the form's own trap field
+   (`website`) and signed timestamp (`opened_at`, an HMAC with the kernel's
+   secret) do that work. Then the flood
    interval the second sign-up from one address, and the rate limiter
    `newsletter_subscribe` (5 an hour per visitor, declared by the bundle when
    `symfony/rate-limiter` is there; a host's own

@@ -18,13 +18,14 @@
     {% endfor %}
 
     {{ form_start(form, {attr: {class: 'newsletter-form', novalidate: 'novalidate'}}) }}
+        {#- The forms' guard (glitchr/omnibase): its captcha, when the site has glitchr/omniguard, before the button. -#}
+        {% if form.guard_captcha is defined %}{{ form_row(form.guard_captcha) }}{% endif %}
         <div class="newsletter-line">
             {{ form_widget(form.email, {attr: {'aria-label': '@newsletter.form.email'|trans}}) }}
             <button type="submit" class="newsletter-button">{{ '@newsletter.form.submit'|trans }}</button>
         </div>
         {{ form_errors(form.email) }}
-        {{ form_row(form.website) }}
-        {{ form_row(form.opened_at) }}
+        {% if form.website is defined %}{{ form_row(form.website) }}{{ form_row(form.opened_at) }}{% endif %}
         {{ form_row(form.source) }}
         <p class="newsletter-note">{{ '@newsletter.form.note'|trans }}</p>
     {{ form_end(form) }}
