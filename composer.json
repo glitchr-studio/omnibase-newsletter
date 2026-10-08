@@ -2,7 +2,7 @@
     "name": "omnibase/newsletter",
     "description": "A newsletter for omnibase: subscribers with double opt-in, campaigns written in the back office and sent through Messenger, a monthly digest drafted from the site’s sources.",
     "type": "symfony-bundle",
-    "license": "LGPL-3.0-or-later",
+    "license": "MIT",
     "authors": [{"name": "Marco Meyer", "email": "marco.meyer@glitchr.io"}],
     "require": {
         "php": "^8.2",

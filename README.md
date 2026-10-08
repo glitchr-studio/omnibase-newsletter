@@ -169,3 +169,7 @@ vendor/bin/phpunit
 ```
 
 The unit tests (`tests/Entity`, `tests/Service`) need no kernel.
+
+## License
+
+MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
