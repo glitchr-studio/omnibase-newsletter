@@ -18,7 +18,7 @@
     {% endfor %}
 
     {{ form_start(form, {attr: {class: 'newsletter-form', novalidate: 'novalidate'}}) }}
-        {#- The forms' guard (glitchr/omnibase): its captcha, when the site has glitchr/omniguard, before the button. -#}
+        {#- The forms' guard (glitchr/omnibase): its captcha, when the site has glitchr/omnishield, before the button. -#}
         {% if form.guard_captcha is defined %}{{ form_row(form.guard_captcha) }}{% endif %}
         <div class="newsletter-line">
             {{ form_widget(form.email, {attr: {'aria-label': '@newsletter.form.email'|trans}}) }}

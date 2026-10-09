@@ -77,7 +77,7 @@ of the mails point at `localhost`.
 
 1. The visitor fills the form. It is guarded as glitchr/omnibase guards a
    form (its option `guard`, `action: newsletter`): a trap, the time it takes
-   (`min_delay`), the lists, the captcha when the site has glitchr/omniguard.
+   (`min_delay`), the lists, the captcha when the site has glitchr/omnishield.
    With a glitchr/omnibase from before the guard, the form's own trap field
    (`website`) and signed timestamp (`opened_at`, an HMAC with the kernel's
    secret) do that work. Then the flood

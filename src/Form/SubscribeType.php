@@ -17,7 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * The sign-up form - one address, and `source`: which page it was filled on.
  * Guarded as glitchr/omnibase guards a form (its option `guard`, action
  * "newsletter", newsletter.min_delay): a trap, the time it takes, the lists,
- * the captcha when the site has glitchr/omniguard. With a glitchr/omnibase
+ * the captcha when the site has glitchr/omnishield. With a glitchr/omnibase
  * from before the guard, the form's own: a trap field (`website`) and the
  * time it was opened (`opened_at`, signed with the kernel's secret), read by
  * Service\SubscribeGuard - until the host takes a core that has the guard.

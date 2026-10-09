@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
  * in place of its own `website` trap and `opened_at` time: a filled trap, a sign-up sent faster than
  * its delay and a missing captcha token are refused on the form; a sign-up made as a person makes it
  * goes through. Without a captcha (`challenge: false`), the trap and the time alone. Run by a host
- * application that loads the bundle (its kernel; its test captcha: omniguard's "fixed" gateway).
+ * application that loads the bundle (its kernel; its test captcha: omnishield's "fixed" gateway).
  */
 final class SubscribeGuardTest extends KernelTestCase
 {
@@ -54,7 +54,7 @@ final class SubscribeGuardTest extends KernelTestCase
             'guard_opened' => static::getContainer()->get(FormGuard::class)->stamp(time() - 10),
         ];
         if ($form->has('guard_captcha')) {
-            $data['guard_captcha'] = 'omniguard-fixed-token';
+            $data['guard_captcha'] = (class_exists(\Omnishield\Testing\FixedGateway::class) ? \Omnishield\Testing\FixedGateway::TOKEN : 'omniguard-fixed-token'); // omnishield's "fixed" test gateway, or omniguard's on a host not moved to omnishield yet.
         }
         $form->submit(array_filter($overrides + $data, static fn ($value) => null !== $value));
 
@@ -103,7 +103,7 @@ final class SubscribeGuardTest extends KernelTestCase
     {
         $form = $this->form();
         if (!$form->has('guard_captcha')) {
-            self::markTestSkipped('The host application has no captcha (glitchr/omniguard).');
+            self::markTestSkipped('The host application has no captcha (glitchr/omnishield).');
         }
         $this->send($form, ['guard_captcha' => '']);
         self::assertFalse($form->isValid());
