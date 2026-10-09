@@ -54,7 +54,7 @@ final class SubscribeGuardTest extends KernelTestCase
             'guard_opened' => static::getContainer()->get(FormGuard::class)->stamp(time() - 10),
         ];
         if ($form->has('guard_captcha')) {
-            $data['guard_captcha'] = (class_exists(\Omnishield\Testing\FixedGateway::class) ? \Omnishield\Testing\FixedGateway::TOKEN : 'omniguard-fixed-token'); // omnishield's "fixed" test gateway, or omniguard's on a host not moved to omnishield yet.
+            $data['guard_captcha'] = 'omnishield-fixed-token';
         }
         $form->submit(array_filter($overrides + $data, static fn ($value) => null !== $value));
 
