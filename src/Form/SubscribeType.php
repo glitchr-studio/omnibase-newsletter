@@ -57,7 +57,9 @@ final class SubscribeType extends AbstractType
             'source' => 'site',
         ]);
         if (class_exists(FormGuard::class)) {
-            $resolver->setDefault('guard', ['action' => 'newsletter', 'min_delay' => $this->minDelay]);
+            // One refused try and the captcha shows (glitchr/omnibase's guard.captcha_after; a core
+            // from before it reads nothing of it and shows the captcha at once).
+            $resolver->setDefault('guard', ['action' => 'newsletter', 'min_delay' => $this->minDelay, 'captcha_after' => 1]);
         }
         $resolver->setAllowedTypes('source', 'string');
     }
