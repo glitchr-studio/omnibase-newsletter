@@ -75,10 +75,10 @@ of the mails point at `localhost`.
 
 ## Double opt-in
 
-1. The visitor fills the form. It is guarded as glitchr/omnibase guards a
+1. The visitor fills the form. It is guarded as omniscient/omnibase guards a
    form (its option `guard`, `action: newsletter`): a trap, the time it takes
    (`min_delay`), the lists, the captcha when the site has glitchr/omnishield.
-   With a glitchr/omnibase from before the guard, the form's own trap field
+   With a omniscient/omnibase from before the guard, the form's own trap field
    (`website`) and signed timestamp (`opened_at`, an HMAC with the kernel's
    secret) do that work. Then the flood
    interval the second sign-up from one address, and the rate limiter
